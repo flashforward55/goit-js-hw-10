@@ -9,7 +9,14 @@ const searchBox = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
-function renderCountryList() {}
+function renderCountryList(countries) {
+  countryList.innerHTML = '';
+  countries.forEach(country => {
+    const li = document.createElement('li');
+    const img = document.createElement('img');
+    const name = document.createElement('span');
+  });
+}
 
 function renderCountryInfo() {}
 
