@@ -63,24 +63,25 @@ function renderCountryInfo(country) {
 }
 
 function handleSearch() {
-  const searchTerm = searchBox.value.trim();
+  const searchCountries = searchBox.value.trim();
 
-  if (!searchTerm) {
+  if (!searchCountries) {
     handleSearchClearMarkup();
+    return;
   }
 
-  fetchCountries(searchTerm).then(countries => {
+  fetchCountries(searchCountries).then(countries => {
     if (countries.length > 10) {
       Notify.info('Too many matches found. Please enter a more specific name.');
-      handleSearchClearMarkup();
     } else if (countries.length >= 2) {
       renderCountryList(countries);
       countryInfo.innerHTML = '';
     } else if (countries.length === 1) {
       renderCountryInfo(countries[0]);
       countryList.innerHTML = '';
+      Notify.success('Request completed successfully.');
     } else {
-      Notify.failure('Oops, there is an error. Please try again.');
+      Notify.warning('Oops, there is an error. Please try again.');
       handleSearchClearMarkup();
     }
   });
