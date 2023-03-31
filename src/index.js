@@ -14,7 +14,14 @@ function renderCountryList(countries) {
   countries.forEach(country => {
     const li = document.createElement('li');
     const img = document.createElement('img');
-    const name = document.createElement('span');
+    const span = document.createElement('span');
+
+    img.src = country.flags.svg;
+    img.alt = `${country.name.common} flag`;
+    span.textContent = country.name.official;
+
+    li.append(img, span);
+    countryList.append(li);
   });
 }
 
