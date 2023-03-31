@@ -9,4 +9,6 @@ const searchBox = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
+const handleSearchDebounced = debounce(handleSearch, DEBOUNCE_DELAY);
+
 searchBox.addEventListener('input', handleSearchDebounced);
