@@ -25,7 +25,42 @@ function renderCountryList(countries) {
   });
 }
 
-function renderCountryInfo() {}
+function renderCountryInfo(country) {
+  countryInfo.innerHTML = country
+    .map(
+      ({
+        name,
+        capital,
+        population,
+        flags,
+        languages,
+      }) => `<div class="country-info__flag">
+      <img src="${flags.svg}" alt="${name.common} flag">
+    </div>
+    <div class="country-info__text">
+      <h2 class="country-info__name">${name.official}</h2>
+      <p><span>Capital:</span> ${capital}</p>
+      <p><span>Population:</span> ${population.toLocaleString()}</p>
+      <p><span>Languages:</span> ${Object.values(languages).join(', ')}</p>
+    </div>`
+    )
+    .join('');
+}
+/* function renderCountryInfo(country) {
+  const languages = Object.values(country.languages).join(', ');
+
+  countryInfo.innerHTML = `
+    <div class="country-info__flag">
+      <img src="${country.flags.svg}" alt="${country.name.common} flag">
+    </div>
+    <div class="country-info__text">
+      <h2 class="country-info__name">${country.name.official}</h2>
+      <p><span>Capital:</span> ${country.capital}</p>
+      <p><span>Population:</span> ${country.population.toLocaleString()}</p>
+      <p><span>Languages:</span> ${languages}</p>
+    </div>
+  `;
+} */
 
 function handleSearch() {
   const searchTerm = searchBox.value.trim();
