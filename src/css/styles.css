@@ -10,11 +10,107 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+
+  margin: 0 auto;
+  width: 50%;
 }
 
-#search-box {
+/* #search-box {
   font: inherit;
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+} */
+
+/* CSS styles for Homework 10 */
+
+/* General styles */
+/* body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+
+}
+ */
+
+
+/* Search box styles */
+#search-box {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  display: block;
+  margin: 50px auto 0;
+  width: 50%;
+}
+
+#search-box:hover,
+#search-box:focus {
+
+  outline: 1px solid #ccc;
+  ;
+}
+
+/* Country list styles */
+.country-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.country-list li {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.country-list li:hover {
+  background-color: #eee;
+}
+
+.country-list img {
+  width: 2rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Country info styles */
+.country-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.country-info__flag img {
+  width: 10rem;
+  height: auto;
+}
+
+.country-info__text {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.country-info__name {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.country-info__text p {
+  margin: 0.5rem 0;
+}
+
+.country-info__text p span {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Notiflix styles */
+.notiflix-notify-container {
+  z-index: 10000;
 }

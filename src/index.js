@@ -14,18 +14,18 @@ function renderCountryList(countries) {
   countries.forEach(country => {
     const li = document.createElement('li');
     const img = document.createElement('img');
-    const span = document.createElement('span');
+    const spanNameCountry = document.createElement('span');
 
     img.src = country.flags.svg;
     img.alt = `${country.name.common} flag`;
-    span.textContent = country.name.official;
+    spanNameCountry.textContent = country.name.official;
 
-    li.append(img, span);
+    li.append(img, spanNameCountry);
     countryList.append(li);
   });
 }
 
-function renderCountryInfo(country) {
+/* function renderCountryInfo(country) {
   countryInfo.innerHTML = country
     .map(
       ({
@@ -45,8 +45,8 @@ function renderCountryInfo(country) {
     </div>`
     )
     .join('');
-}
-/* function renderCountryInfo(country) {
+} */
+function renderCountryInfo(country) {
   const languages = Object.values(country.languages).join(', ');
 
   countryInfo.innerHTML = `
@@ -60,30 +60,35 @@ function renderCountryInfo(country) {
       <p><span>Languages:</span> ${languages}</p>
     </div>
   `;
-} */
+}
 
 function handleSearch() {
   const searchTerm = searchBox.value.trim();
 
   if (!searchTerm) {
-    countryList.innerHTML = '';
-    countryInfo.innerHTML = '';
-    return;
+    handleSearchClearMarkup();
   }
 
   fetchCountries(searchTerm).then(countries => {
     if (countries.length > 10) {
-      throw Notify.info(
-        'Too many matches found. Please enter a more specific name.'
-      );
+      Notify.info('Too many matches found. Please enter a more specific name.');
+      handleSearchClearMarkup();
     } else if (countries.length >= 2) {
       renderCountryList(countries);
+      countryInfo.innerHTML = '';
     } else if (countries.length === 1) {
       renderCountryInfo(countries[0]);
+      countryList.innerHTML = '';
     } else {
-      throw Notify.failure('Oops, there is an error. Please try again.');
+      Notify.failure('Oops, there is an error. Please try again.');
+      handleSearchClearMarkup();
     }
   });
+}
+
+function handleSearchClearMarkup() {
+  countryList.innerHTML = '';
+  countryInfo.innerHTML = '';
 }
 const handleSearchDebounced = debounce(handleSearch, DEBOUNCE_DELAY);
 
