@@ -25,7 +25,7 @@ function renderCountryList(countries) {
   });
 }
 
-/* function renderCountryInfo(country) {
+function renderCountryInfo(country) {
   countryInfo.innerHTML = country
     .map(
       ({
@@ -45,8 +45,8 @@ function renderCountryList(countries) {
     </div>`
     )
     .join('');
-} */
-function renderCountryInfo(country) {
+}
+/* function renderCountryInfo(country) {
   const languages = Object.values(country.languages).join(', ');
 
   countryInfo.innerHTML = `
@@ -60,7 +60,7 @@ function renderCountryInfo(country) {
       <p><span>Languages:</span> ${languages}</p>
     </div>
   `;
-}
+} */
 
 function handleSearch() {
   const searchCountries = searchBox.value.trim();
