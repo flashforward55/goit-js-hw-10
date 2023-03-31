@@ -9,6 +9,10 @@ const searchBox = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
+function renderCountryList() {}
+
+function renderCountryInfo() {}
+
 function handleSearch() {
   const searchTerm = searchBox.value.trim();
 
@@ -17,8 +21,21 @@ function handleSearch() {
     countryInfo.innerHTML = '';
     return;
   }
-}
 
+  fetchCountries(searchTerm).then(countries => {
+    if (countries.length > 10) {
+      throw Notify.info(
+        'Too many matches found. Please enter a more specific name.'
+      );
+    } else if (countries.length >= 2) {
+      renderCountryList(countries);
+    } else if (countries.length === 1) {
+      renderCountryInfo(countries[0]);
+    } else {
+      throw Notify.failure('Oops, there is an error. Please try again.');
+    }
+  });
+}
 const handleSearchDebounced = debounce(handleSearch, DEBOUNCE_DELAY);
 
 searchBox.addEventListener('input', handleSearchDebounced);
