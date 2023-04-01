@@ -14,13 +14,13 @@ function renderCountryList(countries) {
   countries.forEach(country => {
     const li = document.createElement('li');
     const img = document.createElement('img');
-    const spanNameCountry = document.createElement('span');
+    const span = document.createElement('span');
 
     img.src = country.flags.svg;
     img.alt = `${country.name.common} flag`;
-    spanNameCountry.textContent = country.name.official;
+    span.textContent = country.name.official;
 
-    li.append(img, spanNameCountry);
+    li.append(img, span);
     countryList.append(li);
     li.addEventListener('click', () => {
       searchBox.value = country.name.official;
