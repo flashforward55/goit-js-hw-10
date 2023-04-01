@@ -22,6 +22,13 @@ function renderCountryList(countries) {
 
     li.append(img, spanNameCountry);
     countryList.append(li);
+    li.addEventListener('click', () => {
+      searchBox.value = country.name.official;
+      renderCountryInfo([country]); // one country
+      // renderCountryInfo(countries); // all countries
+      countryList.innerHTML = '';
+      Notify.success('Request completed successfully.');
+    });
   });
 }
 
@@ -46,6 +53,7 @@ function renderCountryInfo(country) {
     )
     .join('');
 }
+
 /* function renderCountryInfo(country) {
   const languages = Object.values(country.languages).join(', ');
 
@@ -81,7 +89,7 @@ function handleSearch() {
       countryList.innerHTML = '';
       Notify.success('Request completed successfully.');
     } else {
-      Notify.warning('Oops, there is an error. Please try again.');
+      Notify.warning(`Error! Status ${countries.status}`);
       handleSearchClearMarkup();
     }
   });

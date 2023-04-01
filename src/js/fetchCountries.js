@@ -6,7 +6,7 @@ function fetchCountries(name) {
 
   return fetch(url).then(response => {
     if (!response.ok) {
-      Notify.failure(`Oops, there is no country with that name`);
+      Notify.failure('Oops, there is no country with that name');
     }
     return response.json();
   });
