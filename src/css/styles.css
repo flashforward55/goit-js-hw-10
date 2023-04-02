@@ -15,25 +15,6 @@ body {
   width: 50%;
 }
 
-/* #search-box {
-  font: inherit;
-  padding: 8px;
-  max-width: 320px;
-  margin-bottom: 16px;
-} */
-
-/* CSS styles for Homework 10 */
-
-/* General styles */
-/* body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-
-}
- */
-
-
 /* Search box styles */
 #search-box {
   font-size: 1.2rem;
