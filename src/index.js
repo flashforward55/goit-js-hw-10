@@ -54,22 +54,6 @@ function renderCountryInfo(country) {
     .join('');
 }
 
-/* function renderCountryInfo(country) {
-  const languages = Object.values(country.languages).join(', ');
-
-  countryInfo.innerHTML = `
-    <div class="country-info__flag">
-      <img src="${country.flags.svg}" alt="${country.name.common} flag">
-    </div>
-    <div class="country-info__text">
-      <h2 class="country-info__name">${country.name.official}</h2>
-      <p><span>Capital:</span> ${country.capital}</p>
-      <p><span>Population:</span> ${country.population.toLocaleString()}</p>
-      <p><span>Languages:</span> ${languages}</p>
-    </div>
-  `;
-} */
-
 function handleSearch() {
   const searchCountries = searchBox.value.trim();
 
@@ -85,7 +69,7 @@ function handleSearch() {
       renderCountryList(countries);
       countryInfo.innerHTML = '';
     } else if (countries.length === 1) {
-      renderCountryInfo(countries[0]);
+      renderCountryInfo(countries);
       countryList.innerHTML = '';
       Notify.success('Request completed successfully.');
     } else {
