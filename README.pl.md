@@ -68,9 +68,9 @@ jeśli nie zrobiło się to automatycznie.
 Status deploymentu ostatniego commitu wyświetla się na ikonie obok jego
 identyfikatora.
 
-- ** Żółty kolor** - wykonuje się zbudowanie i deployment projektu.
-- ** Zielony kolor** - deployment zakończył się sukcesem.
-- ** Czerwony kolor** - w czasie lintingu, budowania lub deplymentu pojawił się
+- **Żółty kolor** - wykonuje się zbudowanie i deployment projektu.
+- **Zielony kolor** - deployment zakończył się sukcesem.
+- **Czerwony kolor** - w czasie lintingu, budowania lub deplymentu pojawił się
   błąd.
 
 Więcej informacji o statusie można zobaczyć klikając na ikonkę i w wyskakującym
